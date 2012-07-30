@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe lakes do
+describe Lake do
 
   let(:user) { FactoryGirl.create(:user) }
  

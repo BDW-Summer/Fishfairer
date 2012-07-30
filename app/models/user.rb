@@ -3,7 +3,6 @@ attr_accessible :name, :email, :password, :password_confirmation, :attach, :zipc
 	has_secure_password
    has_many :lakes, dependent: :destroy
    belongs_to :lake
-
   before_save { |user| user.email = email.downcase }
 
   validates :name, presence: true, length: { maximum: 50 }
