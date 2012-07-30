@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation, :attach, :zipcode
-  has_secure_password
+attr_accessible :name, :email, :password, :password_confirmation, :attach, :zipcode, :lakes  
+	has_secure_password
+   has_many :lakes, dependent: :destroy
+   belongs_to :lake
 
   before_save { |user| user.email = email.downcase }
 
@@ -18,7 +20,7 @@ class User < ActiveRecord::Base
     :small  => "150x150>",
     :medium => "300x300>",
     :large =>   "400x400>" }
-    validates_attachment_presence :attach
-    has_attached_file :attach
+  validates_attachment_presence :attach
+  has_attached_file :attach
    
 end

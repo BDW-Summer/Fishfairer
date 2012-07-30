@@ -1,0 +1,2 @@
+module GetapiHelper
+end

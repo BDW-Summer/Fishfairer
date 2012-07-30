@@ -1,8 +1,19 @@
 SampleApp::Application.routes.draw do
+ resources :lakes
+
  get "users/new"
+ 
  root to: 'static_pages#home'
  resources :users
+
+
+
+ 
  resources :sessions, only: [:new, :create, :destroy]
+	
+
+	
+  match '/lakes', 	to: 'lakes#index'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
