@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 module GetapiHelper
 	
 	def get_by_zip
@@ -9,9 +8,4 @@ module GetapiHelper
 		@weather_data = JSON.parse(HTTParty.get(url).parsed_response)
     
 	end
-=======
-
-module GetapiHelper
-
->>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
 end
