@@ -3,14 +3,19 @@
   
 
     <%= form_for @user, :html => { :multipart => true } do |f| %>
+<<<<<<< HEAD
 	 <%= render 'shared/error_messages', object: f.object %>
 <%= f.file_field :attach %>
+=======
+	
+>>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
 
+		<%= f.file_field :attach %>
       <%= f.label :name %>
       <%= f.text_field :name %>
       
       <%= f.label :zipcode %>
-      <%= f.text_field :zipcode %>
+      <%= f.select :zipcode, [['Denver','denver'],['Chicago','chicago'],['New York','new-york']] %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -31,3 +36,4 @@
 
   </div>
 </div>
+

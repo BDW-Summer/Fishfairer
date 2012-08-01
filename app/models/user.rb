@@ -19,9 +19,14 @@ class User < ActiveRecord::Base
     :small  => "150x150>",
     :medium => "300x300>",
     :large =>   "400x400>" }
+<<<<<<< HEAD
   validates_attachment_presence :attach
   has_attached_file :attach
    
+=======
+   
+    has_attached_file :attach
+>>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
    
 def self.create_with_omniauth(auth) #Twitter Login
   create! do |user|

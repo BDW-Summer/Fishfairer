@@ -7,6 +7,10 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem "paperclip", "~> 2.3"
 gem "httparty"	
+<<<<<<< HEAD
+=======
+gem 'json'
+>>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

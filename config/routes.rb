@@ -1,8 +1,12 @@
 SampleApp::Application.routes.draw do
+<<<<<<< HEAD
  
 
  get "users/new"
  
+=======
+# get "users/new"
+>>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
  root to: 'static_pages#home'
  resources :users
   match 'lakes/:name_of_lake' => "lakes#show", :via => :get
@@ -14,11 +18,16 @@ SampleApp::Application.routes.draw do
  
  resources :sessions, only: [:new, :create, :destroy]
 
+<<<<<<< HEAD
  
   #match 'lakes/:name_of_lake' => 'lakes#show', :as => :lake
   match '/lakes' => 'lakes#index', :as => :id 	
   match '/lakes', 	to: 'lakes#index'
   match 'users/signup',  to: 'users#new'
+=======
+#match 'Api/weather/:zip' => 'Api#get_weather_for_zip'
+  match '/signup',  to: 'users#new'
+>>>>>>> d2f0b8107b16a9bfbcdf362e415f7ae5bb90da51
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/signup',  to: 'users#new'
