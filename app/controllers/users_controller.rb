@@ -1,4 +1,5 @@
 require 'httparty'
+
 class UsersController < ApplicationController
   
    def new

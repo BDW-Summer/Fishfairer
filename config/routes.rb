@@ -1,21 +1,24 @@
 SampleApp::Application.routes.draw do
- resources :lakes
+ 
 
  get "users/new"
  
  root to: 'static_pages#home'
  resources :users
+  match 'lakes/:name_of_lake' => "lakes#show", :via => :get
+   match 'lakes' => "lakes#index", :via => :get
+ resources :lakes
 
 
 
  
  resources :sessions, only: [:new, :create, :destroy]
-	
 
-	
+ 
+  #match 'lakes/:name_of_lake' => 'lakes#show', :as => :lake
+  match '/lakes' => 'lakes#index', :as => :id 	
   match '/lakes', 	to: 'lakes#index'
-
-  match '/signup',  to: 'users#new'
+  match 'users/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/signup',  to: 'users#new'
@@ -23,7 +26,10 @@ SampleApp::Application.routes.draw do
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
   
-
+  
+  match "/auth/:provider/callback" => "sessions#new"
+  match "/signout" => "sessions#destroy", :as => :signout
+	
 	
 
   # The priority is based upon order of creation:

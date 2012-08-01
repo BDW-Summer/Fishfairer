@@ -1,2 +1,6 @@
- <h1><%= @lake	 %></h1>
-      
+
+
+<% @lakes.each do |lake|%>
+
+<h2><%= lake.name_of_lake %></h2>
+        <% end %>

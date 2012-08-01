@@ -3,7 +3,7 @@
   
 
     <%= form_for @user, :html => { :multipart => true } do |f| %>
-	
+	 <%= render 'shared/error_messages', object: f.object %>
 <%= f.file_field :attach %>
 
       <%= f.label :name %>
@@ -27,5 +27,7 @@
   <div class="alert alert-<%= key %>"><%= value %></div>
   <%= pluralize(@user.errors.count, "error") %>
 <% end %>
+
+
   </div>
 </div>
