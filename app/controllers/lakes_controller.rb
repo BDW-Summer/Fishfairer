@@ -12,7 +12,7 @@ class LakesController < ApplicationController
 	
   	@lake = Lake.find_by_name_of_lake(params[:name_of_lake])
   	
-  end
+     end
   
   
 end

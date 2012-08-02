@@ -1,18 +1,20 @@
 SampleApp::Application.routes.draw do
  
 
- get "users/new"
- 
- root to: 'static_pages#home'
+
  resources :users
+ resources :microposts, only: [:create, :destroy]
+ resources :sessions, only: [:new, :create, :destroy]
   match 'lakes/:name_of_lake' => "lakes#show", :via => :get
    match 'lakes' => "lakes#index", :via => :get
  resources :lakes
 
 
-
+ get "users/new"
  
- resources :sessions, only: [:new, :create, :destroy]
+ root to: 'static_pages#home'
+ 
+ 
 
  
   #match 'lakes/:name_of_lake' => 'lakes#show', :as => :lake

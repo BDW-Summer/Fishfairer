@@ -3,11 +3,11 @@ class CreateLakes < ActiveRecord::Migration
     create_table :lakes do |t|
       t.string :content
       t.string :name_of_lake
-      t.integer :user_id
+      t.integer :lake_id
       t.string  :lake_zipcode
-      t.string :photo
+      
  
-      add_column :lakes, :permalink, :string
+     # add_column :lakes, :string
       
       t.timestamps
     end 
