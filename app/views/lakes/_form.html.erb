@@ -1,7 +1,7 @@
 <form class="filter_form">
    
    
-    <%= collection_select( :name_of_lake, :lake, Lake.all, :id, :name_of_lake, {}, { :multiple => true } ) %>
+    <%= collection_select( :name, :lake, Lake.all, :id, :name, {}, { :multiple => true } ) %>
 
  
     <input type="submit" value="Go To Lake" />

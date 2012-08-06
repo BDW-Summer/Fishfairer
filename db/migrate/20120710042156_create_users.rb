@@ -6,9 +6,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :zipcode     
       t.string :provider
       t.string :uid
+      t.string :attach
+      
       
       
       t.timestamps
     end
+     
   end
 end

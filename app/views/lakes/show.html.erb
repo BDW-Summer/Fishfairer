@@ -1,19 +1,26 @@
-
+<img src="http://blog.lordelginhotel.ca/wp-content/uploads/2007/08/the-lake.JPG" width="400" />
 <div class="row">
  <aside>
-<%= @lake.lake_image %>
-<h3><%= @lake.name_of_lake %></h3>
+
+
+<h3><%= @lake.name %></h3>
 <h3><%= @lake.content %></h3>
 <h3><%= @lake.lake_zipcode %></h3>
-    </aside>
-     <div class="span8">
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
-  </div>
-  </div>
+<h3>Weather: <%= @weather_data["forecastList"][0]["dayDesc"] %></h3>
+ <ul class="microposts">
+       <% @microposts.each do |micropost| %>
+         <li>
+           <%= micropost.content %>
+         </li>
+         <% end %>
+</ul>
+ 
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    
+
   
+ 
+
+ 

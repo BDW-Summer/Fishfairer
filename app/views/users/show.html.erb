@@ -3,19 +3,16 @@
   <aside class="span4">
     <section>
 
+    <h1><%= @user.name %></h1>   
+    <h2>Zip Code: <%= @user.zipcode %></h2>
+    <h2>Weather: <%= @weather_data["forecastList"][0]["dayDesc"] %></h2>
+        
+        
+    <h2>Email: <%= @user.email %></h2>
+    <a href="<%= @user.attach.url %>">
+      <%= image_tag @user.attach.url %>
+    </a>
 
-	   <h1><%= @user.name %></h1>
-       
-        
-        <h2>Zip Code: <%= @user.zipcode %></h2>
-        <h2>Weather: <%= @weather_data["forecastList"][0]["dayDesc"] %></h2>
-        
-        
-        <h2>Email: <%= @user.email %></h2>
-    	<a href="<%= @user.attach.url %>">
-    	<%= image_tag @user.attach.url %>
-		</a>
-    
     </section>
   </aside>
 </div>	

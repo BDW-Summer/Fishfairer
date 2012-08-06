@@ -5,9 +5,10 @@ SampleApp::Application.routes.draw do
  resources :users
  resources :microposts, only: [:create, :destroy]
  resources :sessions, only: [:new, :create, :destroy]
-  match 'lakes/:name_of_lake' => "lakes#show", :via => :get
-   match 'lakes' => "lakes#index", :via => :get
- resources :lakes
+  #match 'lakes/:name_of_lake' => "lakes#show", :via => :get
+   
+   #match 'lakes' => "lakes#index", :via => :get
+ resources :lakes 
 
 
  get "users/new"
@@ -19,7 +20,8 @@ SampleApp::Application.routes.draw do
  
   #match 'lakes/:name_of_lake' => 'lakes#show', :as => :lake
   match '/lakes' => 'lakes#index', :as => :id 	
-  match '/lakes', 	to: 'lakes#index'
+
+
   match 'users/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete

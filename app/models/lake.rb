@@ -1,8 +1,10 @@
 class Lake < ActiveRecord::Base
-  attr_accessible :name_of_lake, :lake_zipcode, :content, :user_id
- 
-	#def to_param
-	 # name_of_lake
-	#end
-		
+  attr_accessible :name, :lake_zipcode, :content, :user_id
+  has_many :microposts, dependent: :destroy
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  def to_param
+     "#{slug}".parameterize
+  end
+  
 end

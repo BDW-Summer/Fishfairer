@@ -11,26 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120801234504) do
+ActiveRecord::Schema.define(:version => 20120806194342) do
 
   create_table "lakes", :force => true do |t|
     t.string   "content"
-    t.string   "name_of_lake"
+    t.string   "name"
     t.integer  "lake_id"
     t.string   "lake_zipcode"
+    t.string   "slug"
+    t.string   "lake_name"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "lakes_lists", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "lakes", ["slug"], :name => "index_lakes_on_slug", :unique => true
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
+    t.integer  "lake_id"
+    t.string   "lake_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20120801234504) do
     t.string   "zipcode"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.string   "attach"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "attach_file_name"
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20120801234504) do
     t.datetime "pic_updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",               :default => false
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
