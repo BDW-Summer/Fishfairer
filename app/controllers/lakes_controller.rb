@@ -17,7 +17,7 @@ class LakesController < ApplicationController
     @lake = Lake.find(params[:id])
     	
     @microposts = @lake.microposts
-    @micropost  = current_user.microposts.build
+    @micropost  = @microposts.build
      #@micropost = current_user.micropost.build(params[:micropost])
 	 if signed_in?
       
@@ -28,12 +28,13 @@ class LakesController < ApplicationController
   
   def vote
   	value = params[:type] == "up" ? 1 : -1
-  	#@lake = Lake.find_by_name_of_lake(params[:name_of_lake])
+    #@lake = Lake.find_by_name_of_lake(params[:name_of_lake])
     @lake = Lake.find(params[:id])
   	@lake.add_evaluation(:votes, value, current_user)
   	
   	redirect_to :back, :notice=> "Thanks for Voting"
   end
+ 
   
 end
 

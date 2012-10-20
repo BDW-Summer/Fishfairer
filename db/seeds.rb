@@ -6,4 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-lakes = Lake.create([{ :name=> 'Waneka', :lake_zipcode=> "80026", :content=> "Great Lake"}, { :name=> 'Walden Ponds', :lake_zipcode=> "80230", :content=> "awesome wildlife"  }, { :name=> 'Gross Reservoir', :lake_zipcode=> "81116", :content=> "Deep and Scary" }])
+lakes = Lake.create([{ :name=> 'Waneka', :lake_zipcode=> "80026", :content=> "Great Lake", :city=> 'Boulder', :state=> 'Colorado'}, { :name=> 'Walden Ponds', :lake_zipcode=> "80230", :content=> "awesome wildlife", :city=> 'Boulder', :state=> 'Colorado' }, { :name=> 'Gross Reservoir', :lake_zipcode=> "81116", :content=> "Deep and Scary", :city=> 'Boulder', :state=> 'Colorado'}])

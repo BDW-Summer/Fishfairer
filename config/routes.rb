@@ -2,25 +2,18 @@ SampleApp::Application.routes.draw do
  
 
 
- resources :users
- resources :microposts, :only=> [:create, :destroy]
- resources :sessions, :only=> [:new, :create, :destroy]
+  resources :users
+  resources :microposts, :only=> [:create, :destroy]
+  resources :sessions, :only=> [:new, :create, :destroy]
+
+  get "users/new"
+  root :to=> 'static_pages#home' 
+  resources :lakes
+ 
+  match '/lakes' => 'lakes#index', :as=> :id
+  #match '/lakes' => 'lakes#index', :as=> :name	
   #match 'lakes/:name_of_lake' => "lakes#show", :via => :get
-   
-   #match 'lakes' => "lakes#index", :via => :get
- resources :lakes 
-
-
- get "users/new"
- 
- root :to=> 'static_pages#home'
- 
- 
-
- 
-  #match 'lakes/:name_of_lake' => 'lakes#show', :as => :lake
-  match '/lakes' => 'lakes#index', :as => :id 	
-
+  #match 'lakes' => "lakes#index", :via => :get
 
   match 'users/signup',  :to=> 'users#new'
   match '/signin',  :to=> 'sessions#new'

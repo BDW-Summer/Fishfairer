@@ -1,11 +1,14 @@
-<img src="http://blog.lordelginhotel.ca/wp-content/uploads/2007/08/the-lake.JPG" width="400" />
+<div id='lakeimage'>
+
+<div id="next"><a href="#">NEXT>></a></div>
+</div>
 <div class="row">
  <aside>
 
 
 <h3><%= @lake.name %></h3>
 <h3><%= @lake.content %></h3>
-<h3><%= @lake.lake_zipcode %></h3>
+<h5><%= @lake.city %>, <%= @lake.state %>  <%= @lake.lake_zipcode %></h5>
 <h3>Weather: <%= @weather_data["forecastList"][0]["dayDesc"] %></h3>
  <ul class="microposts">
        <% @microposts.each do |micropost| %>
@@ -19,6 +22,25 @@
         <%= render 'shared/micropost_form' %>
       </section>
     
+    <script type="text/javascript">
+	    	var searchstring = "<%= @lake.name %> <%= @lake.city %>, <%= @lake.state %>";
+	    	var url = ("https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q="+searchstring);
+			$(function() {
+					$.ajax({
+				    	type: "GET",
+				        dataType: "jsonp",
+				        cache: false,
+				        url: url,
+				        success: function(data) {
+					        for (var i = 0; i < 1; i++) {
+					        	$("#lakeimage").append("<img src='" + data.responseData.results[2].url +"' />"+"<p>"+searchstring+"</p>"
+					        	);   
+					      	}
+				        }
+				    });
+			});
+</script>
+
 
   
  

@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20120806194342) do
     t.string   "lake_zipcode"
     t.string   "slug"
     t.string   "lake_name"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

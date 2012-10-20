@@ -1,5 +1,5 @@
 class Micropost < ActiveRecord::Base
-  attr_accessible :content, :lake, :slug, :lake_name, :lake_id
+  attr_accessible :content, :lake, :slug, :lake_name, :lake_id, :microposts
 
   belongs_to :user
   belongs_to :lake

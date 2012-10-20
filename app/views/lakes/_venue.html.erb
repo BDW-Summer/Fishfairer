@@ -1,11 +1,6 @@
-
+<select>
 <% @lakes.each do |lake|%>
-	
-	<h2><%= lake.lake_id %></h2>
-	<h2><%= link_to lake_path(lake.id) %></h2>
-
-	
-	<%= link_to "up", vote_lake_path(lake, :type=> "up"), :method=> "post" %>
-	<%= link_to "down", vote_lake_path(lake, :type=> "down"), :method=> "post" %>
-
+<%= link_to lake.name, lake %>
+	<option value="<%link_to lake.name, lake %>"><%= link_to lake.name, lake %></option>
 <% end %>
+</select>

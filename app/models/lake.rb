@@ -1,5 +1,5 @@
 class Lake < ActiveRecord::Base
-  attr_accessible :name, :lake_zipcode, :content, :user_id
+  attr_accessible :name, :lake_zipcode, :content, :user_id, :microposts, :state, :city
   has_many :microposts, :dependent=> :destroy
   extend FriendlyId
   friendly_id :name, :use=> :slugged

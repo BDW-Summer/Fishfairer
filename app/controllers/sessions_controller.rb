@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
         sign_in user
         redirect_back_or user
-        
-  		 
   		 redirect_to root_url, :notice => "Signed in!"      
         session[:user_id] = user.id
     else
