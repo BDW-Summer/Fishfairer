@@ -10,7 +10,8 @@ gem 'bcrypt-ruby', '3.0.1'
 gem "paperclip", "~> 2.3"
 gem "httparty"	
 gem "friendly_id", "~> 4.0.1"
- gem 'faker', '1.0.1'
+gem 'faker', '1.0.1'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
@@ -25,7 +26,6 @@ group :assets do
   gem 'uglifier', '1.2.3'
 end
 
-gem 'jquery-rails', '2.0.0'
 
 group :test, :development do
   gem 'rspec-rails', '2.10.0'

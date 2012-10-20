@@ -5,7 +5,7 @@
 	<h2><%= link_to lake_path(lake.id) %></h2>
 
 	
-	<%= link_to "up", vote_lake_path(lake, type: "up"), method: "post" %>
-	<%= link_to "down", vote_lake_path(lake, type: "down"), method: "post" %>
+	<%= link_to "up", vote_lake_path(lake, :type=> "up"), :method=> "post" %>
+	<%= link_to "down", vote_lake_path(lake, :type=> "down"), :method=> "post" %>
 
 <% end %>

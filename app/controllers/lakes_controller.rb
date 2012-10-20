@@ -1,6 +1,6 @@
 class LakesController < ApplicationController
-	before_filter :signed_in_user, only: [:edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
+	before_filter :signed_in_user, :only=> [:edit, :update]
+  before_filter :correct_user,   :only=> [:edit, :update]
 	def index
 		@lakes = Lake.all
     
@@ -22,7 +22,7 @@ class LakesController < ApplicationController
 	 if signed_in?
       
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate :page=> (params[:page])
     end	
   end
   
@@ -32,7 +32,7 @@ class LakesController < ApplicationController
     @lake = Lake.find(params[:id])
   	@lake.add_evaluation(:votes, value, current_user)
   	
-  	redirect_to :back, notice: "Thanks for Voting"
+  	redirect_to :back, :notice=> "Thanks for Voting"
   end
   
 end

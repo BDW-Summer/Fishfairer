@@ -1,16 +1,16 @@
 require 'httparty'
 
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
-   before_filter :admin_user,     only: :destroy
+  before_filter :signed_in_user, :only=> [:edit, :update]
+  before_filter :correct_user,   :only=> [:edit, :update]
+   before_filter :admin_user,     :only=> :destroy
 
    def new
     @user = User.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      format.json { render :json=> @user }
     end
   end
   
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     
   end
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(:page=> params[:page])
   end
   
   def show
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   		@user_by_zipcode = User.find_all_by_zipcode(params[:zipcode])	 
 	 	if signed_in?
       @micropost  = current_user.microposts.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
+      @feed_items = current_user.feed.paginate(:page=> params[:page])
     end
   
   end
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     def signed_in_user
       unless signed_in?
         store_location
-        redirect_to signin_path, notice: "Please sign in."
+        redirect_to signin_path, :notice=> "Please sign in."
       end
     end
 

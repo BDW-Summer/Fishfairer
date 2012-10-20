@@ -3,8 +3,8 @@ SampleApp::Application.routes.draw do
 
 
  resources :users
- resources :microposts, only: [:create, :destroy]
- resources :sessions, only: [:new, :create, :destroy]
+ resources :microposts, :only=> [:create, :destroy]
+ resources :sessions, :only=> [:new, :create, :destroy]
   #match 'lakes/:name_of_lake' => "lakes#show", :via => :get
    
    #match 'lakes' => "lakes#index", :via => :get
@@ -13,7 +13,7 @@ SampleApp::Application.routes.draw do
 
  get "users/new"
  
- root to: 'static_pages#home'
+ root :to=> 'static_pages#home'
  
  
 
@@ -22,13 +22,13 @@ SampleApp::Application.routes.draw do
   match '/lakes' => 'lakes#index', :as => :id 	
 
 
-  match 'users/signup',  to: 'users#new'
-  match '/signin',  to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
-  match '/signup',  to: 'users#new'
-  match '/help',    to: 'static_pages#help'
-  match '/about',   to: 'static_pages#about'
-  match '/contact', to: 'static_pages#contact'
+  match 'users/signup',  :to=> 'users#new'
+  match '/signin',  :to=> 'sessions#new'
+  match '/signout', :to=> 'sessions#destroy', :via=> :delete
+  match '/signup',  :to=> 'users#new'
+  match '/help',    :to=> 'static_pages#help'
+  match '/about',   :to=> 'static_pages#about'
+  match '/contact', :to=> 'static_pages#contact'
   
   
   match "/auth/:provider/callback" => "sessions#new"
